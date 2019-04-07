@@ -1,0 +1,33 @@
+{
+  "name": "Find and Replace Text",
+  "description": "A Sketch plugin to find and replace text in text layers and symbol instances",
+  "author": "Lim Yuan Qing",
+  "homepage": "https://github.com/yuanqing/sketch-find-and-replace-text",
+  "version": "0.0.0",
+  "identifier": "yuanqing.sketch-find-and-replace-text",
+  "appcast": "https://raw.githubusercontent.com/yuanqing/sketch-find-and-replace-text/master/appcast.xml",
+  "bundleVersion": 1,
+  "disableCocoaScriptPreprocessor": true,
+  "commands": [
+    {
+      "name": "Find and Replace Text",
+      "identifier": "yuanqing.sketch-find-and-replace-text.find-and-replace-text",
+      "script": "plugin.js",
+      "handler": "find-and-replace-text"
+    },
+    {
+      "name": "Reset Settings",
+      "identifier": "yuanqing.sketch-find-and-replace-text.reset-settings",
+      "script": "plugin.js",
+      "handler": "reset-settings"
+    }
+  ],
+  "menu": {
+    "title": "Find and Replace Text",
+    "items": [
+      "yuanqing.sketch-find-and-replace-text.find-and-replace-text",
+      "-",
+      "yuanqing.sketch-find-and-replace-text.reset-settings"
+    ]
+  }
+}

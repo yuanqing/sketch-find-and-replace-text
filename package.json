@@ -1,0 +1,41 @@
+{
+  "private": true,
+  "version": "0.0.0",
+  "devDependencies": {
+    "sketch-plugin-helper": "*"
+  },
+  "scripts": {
+    "build": "sph build",
+    "fix": "sph lint --fix",
+    "lint": "sph lint",
+    "run": "sph run",
+    "symlink": "sph symlink",
+    "test": "sph test",
+    "unlink": "sph symlink --delete",
+    "version": "sph version",
+    "watch": "sph build --watch"
+  },
+  "sketch-plugin-helper": {
+    "pluginName": "Find and Replace Text",
+    "pluginDescription": "A Sketch plugin to find and replace text in text layers and symbol instances",
+    "authorName": "Lim Yuan Qing",
+    "githubUserName": "yuanqing",
+    "githubRepositoryName": "sketch-find-and-replace-text",
+    "menu": [
+      {
+        "handler": "find-and-replace-text",
+        "label": "Find and Replace Text"
+      },
+      "-",
+      {
+        "handler": "reset-settings",
+        "label": "Reset Settings"
+      }
+    ],
+    "defaultSettings": {
+      "caseSensitive": true,
+      "findText": "",
+      "replaceText": ""
+    }
+  }
+}
