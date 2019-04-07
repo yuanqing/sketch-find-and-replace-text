@@ -6,9 +6,9 @@
     <description>A Sketch plugin to find and replace text in text layers and symbol instances</description>
     <language>en</language>
     <item>
-      <title>v0.0.0</title>
-      <description>0.0.0</description>
-      <enclosure url="https://github.com/yuanqing/sketch-find-and-replace-text/archive/v0.0.0.zip" sparkle:version="0.0.0"/>
+      <title>v0.0.1</title>
+      <description>0.0.1</description>
+      <enclosure url="https://github.com/yuanqing/sketch-find-and-replace-text/archive/v0.0.1.zip" sparkle:version="0.0.1"/>
     </item>
   </channel>
 </rss>
