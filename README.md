@@ -1,6 +1,11 @@
-# Find and Replace
+# Find and Replace Text
 
 > A Sketch plugin to find and replace text in text layers and symbol instances
+
+## Usage
+
+- Performs a find and replace on the content of text layers and the symbol overrides of symbol instances
+- Operates on layers in the selection, or on layers on the current page if the selection is empty
 
 ## Installation
 
