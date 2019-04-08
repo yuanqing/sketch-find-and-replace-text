@@ -82,23 +82,20 @@ export default function findAndReplaceText () {
     settings.findText,
     settings.caseSensitive ? 'g' : 'gi'
   )
-  let totalCount = 0
+  let count = 0
   layers.forEach(function (layer) {
-    const count = replaceTextInLayer[layer.type]({
+    count += replaceTextInLayer[layer.type]({
       layer,
       regularExpression,
       replaceText: settings.replaceText
     })
-    totalCount += count
   })
-  if (totalCount === 0) {
+  if (count === 0) {
     showMessage('No replacements made')
     return
   }
   showSuccessMessage(
-    `Made ${totalCount} replacement${totalCount === 1 ? '' : 's'} ${
-      scopeMessage[scope]
-    }`
+    `Made ${count} replacement${count === 1 ? '' : 's'} ${scopeMessage[scope]}`
   )
 }
 
