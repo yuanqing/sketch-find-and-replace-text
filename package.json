@@ -35,7 +35,8 @@
     "defaultSettings": {
       "caseSensitive": true,
       "findText": "",
-      "replaceText": ""
+      "replaceText": "",
+      "scope": "Current page"
     }
   }
 }

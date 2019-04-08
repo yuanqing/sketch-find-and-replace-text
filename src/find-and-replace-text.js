@@ -1,5 +1,6 @@
 import {
-  getAllLayers,
+  getLayersOnAllPages,
+  getLayersOnCurrentPage,
   getSelectedLayers,
   iterateNestedLayers,
   openSettingsDialog,
@@ -8,12 +9,21 @@ import {
   showMessage,
   showSuccessMessage,
   CHECK_BOX,
+  DROP_DOWN,
   TEXT_BOX
 } from 'sketch-plugin-helper'
 
 import replaceTextInLayer from './replace-text-in-layer'
 
+const scopeMessage = {
+  'Selected layers': 'in the selected layers',
+  'Current page': 'on the current page',
+  'Entire document': 'across the entire document'
+}
+
 export default function findAndReplaceText () {
+  const selectedLayers = getSelectedLayers()
+  const hasSelection = selectedLayers.length !== 0
   const settings = openSettingsDialog({
     title: 'Find and Replace Text',
     inputs: [
@@ -31,25 +41,38 @@ export default function findAndReplaceText () {
         type: TEXT_BOX,
         key: 'replaceText',
         label: 'Replace'
+      },
+      {
+        type: DROP_DOWN,
+        key: 'scope',
+        label: 'Scope',
+        possibleValues: [
+          hasSelection && 'Selected layers',
+          'Current page',
+          'Entire document'
+        ].filter(Boolean),
+        value: hasSelection ? 'Selected layers' : null
       }
     ]
   })
   if (!settings) {
     return
   }
-  saveTemporarySettings(settings)
-  const selectedLayers = getSelectedLayers()
+  const {scope, ...settingsWithoutScope} = settings
+  saveTemporarySettings(hasSelection ? settingsWithoutScope : settings)
   let layers = []
-  if (selectedLayers.length === 0) {
-    layers = getNestedTextLayersAndSymbolInstances(getAllLayers())
-    if (layers.length === 0) {
-      showErrorMessage('No text layers or symbol instances on the page')
-      return
-    }
-  } else {
+  if (hasSelection) {
     layers = getNestedTextLayersAndSymbolInstances(selectedLayers)
     if (layers.length === 0) {
       showErrorMessage('No text layers or symbol instances in selection')
+      return
+    }
+  } else {
+    layers = getNestedTextLayersAndSymbolInstances(
+      settings.scope === 'Current page' ? getLayersOnCurrentPage() : getLayersOnAllPages()
+    )
+    if (layers.length === 0) {
+      showErrorMessage('No text layers or symbol instances found')
       return
     }
   }
@@ -71,7 +94,7 @@ export default function findAndReplaceText () {
     return
   }
   showSuccessMessage(
-    `Made ${totalCount} replacement${totalCount === 1 ? '' : 's'}`
+    `Made ${totalCount} replacement${totalCount === 1 ? '' : 's'} ${scopeMessage[scope]}`
   )
 }
 
