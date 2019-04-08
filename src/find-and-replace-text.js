@@ -58,7 +58,7 @@ export default function findAndReplaceText () {
   if (!settings) {
     return
   }
-  const {scope, ...settingsWithoutScope} = settings
+  const { scope, ...settingsWithoutScope } = settings
   saveTemporarySettings(hasSelection ? settingsWithoutScope : settings)
   let layers = []
   if (hasSelection) {
@@ -69,7 +69,9 @@ export default function findAndReplaceText () {
     }
   } else {
     layers = getNestedTextLayersAndSymbolInstances(
-      settings.scope === 'Current page' ? getLayersOnCurrentPage() : getLayersOnAllPages()
+      settings.scope === 'Current page'
+        ? getLayersOnCurrentPage()
+        : getLayersOnAllPages()
     )
     if (layers.length === 0) {
       showErrorMessage('No text layers or symbol instances found')
@@ -94,7 +96,9 @@ export default function findAndReplaceText () {
     return
   }
   showSuccessMessage(
-    `Made ${totalCount} replacement${totalCount === 1 ? '' : 's'} ${scopeMessage[scope]}`
+    `Made ${totalCount} replacement${totalCount === 1 ? '' : 's'} ${
+      scopeMessage[scope]
+    }`
   )
 }
 
