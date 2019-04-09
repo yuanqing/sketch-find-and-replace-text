@@ -8,9 +8,7 @@
     "build": "sph build",
     "fix": "sph lint --fix",
     "lint": "sph lint",
-    "run": "sph run",
     "symlink": "sph symlink",
-    "test": "sph test",
     "unlink": "sph symlink --delete",
     "version": "sph version",
     "watch": "sph build --watch"
