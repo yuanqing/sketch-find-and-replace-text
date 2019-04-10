@@ -59,17 +59,18 @@ export default function findAndReplaceText () {
     return
   }
   const { scope, ...settingsWithoutScope } = settings
-  saveTemporarySettings(hasSelection ? settingsWithoutScope : settings)
   let layers = []
-  if (hasSelection) {
+  if (scope === 'Selected layers') {
+    saveTemporarySettings(settingsWithoutScope)
     layers = getNestedTextLayersAndSymbolInstances(selectedLayers)
     if (layers.length === 0) {
       showErrorMessage('No text layers or symbol instances in selection')
       return
     }
   } else {
+    saveTemporarySettings(settings)
     layers = getNestedTextLayersAndSymbolInstances(
-      settings.scope === 'Current page'
+      scope === 'Current page'
         ? getLayersOnCurrentPage()
         : getLayersOnAllPages()
     )
