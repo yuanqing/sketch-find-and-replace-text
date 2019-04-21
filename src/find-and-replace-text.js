@@ -101,11 +101,11 @@ export default function findAndReplaceText () {
 }
 
 function getNestedTextLayersAndSymbolInstances (layers) {
-  const results = []
+  const result = []
   iterateNestedLayers(layers, function (layer) {
     if (layer.type === 'Text' || layer.type === 'SymbolInstance') {
-      results.push(layer)
+      result.push(layer)
     }
   })
-  return results
+  return result
 }
