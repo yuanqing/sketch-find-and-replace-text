@@ -5,7 +5,7 @@
 ## Usage
 
 - Performs a find and replace on the content of text layers and the symbol overrides of symbol instances
-- Can be configured to operate on layers in the selection, on the current page, or across the entire document
+- Can be configured to operate on layers in the selection, layers on the current page, or layers across the entire document
 
 ## Installation
 
