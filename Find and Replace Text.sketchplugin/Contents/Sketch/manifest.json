@@ -3,7 +3,7 @@
   "description": "A Sketch plugin to find and replace text in text layers and symbol instances",
   "author": "Lim Yuan Qing",
   "homepage": "https://github.com/yuanqing/sketch-find-and-replace-text",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "identifier": "yuanqing.sketch-find-and-replace-text",
   "appcast": "https://raw.githubusercontent.com/yuanqing/sketch-find-and-replace-text/master/appcast.xml",
   "bundleVersion": 1,
