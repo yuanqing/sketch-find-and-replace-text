@@ -2,7 +2,7 @@ import {
   getLayersOnAllPages,
   getLayersOnCurrentPage,
   getSelectedLayers,
-  iterateNestedLayers,
+  iterateChildLayers,
   openSettingsDialog,
   saveTemporarySettings,
   showErrorMessage,
@@ -102,7 +102,7 @@ export default function findAndReplaceText () {
 
 function getNestedTextLayersAndSymbolInstances (layers) {
   const result = []
-  iterateNestedLayers(layers, function (layer) {
+  iterateChildLayers(layers, function (layer) {
     if (layer.type === 'Text' || layer.type === 'SymbolInstance') {
       result.push(layer)
     }
