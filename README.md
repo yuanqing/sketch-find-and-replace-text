@@ -1,4 +1,4 @@
-# Find and Replace Text
+# Find and Replace Text [![npm Version](https://badgen.net/npm/v/sketch-find-and-replace-text)](https://www.npmjs.org/package/sketch-find-and-replace-text)
 
 > A Sketch plugin to find and replace text in text layers and symbol instances
 
