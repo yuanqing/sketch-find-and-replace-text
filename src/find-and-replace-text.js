@@ -26,7 +26,7 @@ export default function findAndReplaceText () {
   const hasSelection = selectedLayers.length !== 0
   const settings = openSettingsDialog({
     title: 'Find and Replace Text',
-    inputs: [
+    formFields: [
       {
         type: TEXT_BOX,
         key: 'findText',
